@@ -24,6 +24,7 @@ export interface ICellViewModel {
     showLineNumbers?: boolean;
     hideOutput?: boolean;
     useQuickEdit?: boolean;
+    gathered: boolean;
     inputBlockToggled(id: string): void;
 }
 
@@ -129,6 +130,7 @@ export function createEditableCellVM(executionCount: number): ICellViewModel {
     return {
         cell: createEmptyCell(undefined, executionCount),
         editable: true,
+        gathered: false,
         inputBlockOpen: true,
         inputBlockShow: true,
         inputBlockText: '',
@@ -170,6 +172,7 @@ export function createCellVM(inputCell: ICell, settings: IDataScienceSettings | 
     return {
         cell: inputCell,
         editable,
+        gathered: false,
         inputBlockOpen: true,
         inputBlockShow: true,
         inputBlockText: inputText,
